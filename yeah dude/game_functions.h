@@ -15,7 +15,7 @@ int ExitGame() {
 	selection = 2;
 	bool doLoop = true;
 	while (doLoop == true) {
-		system("cls");
+		Clear();
 		cout << "---------------------------------------" << endl;
 		cout << "|Are you sure you wanna quit the game?|" << endl;
 		cout << "---------------------------------------" << endl;
@@ -87,7 +87,7 @@ int ResetGameMenu() {
 	selection = 2;
 	bool doLoop = true;
 	while (doLoop == true) {
-		system("cls");
+		Clear();
 		cout << "----------------------------------------" << endl;
 		cout << "|Are you sure you wanna reset the game?|" << endl;
 		cout << "----------------------------------------" << endl;
@@ -124,7 +124,7 @@ int ResetGameMenu() {
 			cout << "|" << endl;
 		}
 		cout << "---------------------------------------" << endl;
-		input = getchar();
+		input = getch();
 		#endif
 		switch (input)
 		{

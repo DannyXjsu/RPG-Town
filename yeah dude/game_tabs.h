@@ -853,7 +853,7 @@ void cWorkers() {
 			break;
 		}
 
-		input = getchar();
+		input = getch();
 		switch (input)
 		{
 		case KEY_ARROWUP:

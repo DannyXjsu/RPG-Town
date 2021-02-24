@@ -10,6 +10,8 @@ void SaveGame() {
 	saveFile << iFood << endl;
 	saveFile << iArmyMax << endl;
 	saveFile << iArmy << endl;
+	saveFile << iWorkers;
+	saveFile << iFreeWorkers;
 	saveFile << iWood << endl;
 	saveFile << iStone << endl;
 	saveFile << iLeather << endl;
