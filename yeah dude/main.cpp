@@ -31,6 +31,9 @@ int main() {
 	const string sWorld = "WORLD";
 	const string sQuestion = "?";
 
+	#ifndef _WIN32
+	initscr();
+	#endif
 
 	start: //used for goto
 	while (true) {
@@ -101,6 +104,7 @@ int main() {
 		}
 		drawLine(iScreenSize);
 		//This draws the menu options depending on what selection you have
+		#ifdef _WIN32
 		switch (selection)
 		{
 		case 1:
@@ -232,6 +236,121 @@ int main() {
 		default:
 			break;
 		}
+		#else
+		switch (selection)
+		{
+		case 1:
+			cout << ">" << sQuests << endl;
+			cout << sTown << endl;
+			cout << sProduction << endl;
+			cout << sWorkers << endl;
+			cout << sArmy << endl;
+			cout << sWorld << endl;
+			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "RESET GAME" << endl;
+			cout << "EXIT" << endl;
+			break;
+		case 2:
+			cout << sQuests << endl;
+			cout << ">" << sTown << endl;
+			cout << sProduction << endl;
+			cout << sWorkers << endl;
+			cout << sArmy << endl;
+			cout << sWorld << endl;
+			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "RESET GAME" << endl;
+			cout << "EXIT" << endl;
+			break;
+		case 3:
+			cout << sQuests << endl;
+			cout << sTown << endl;
+			cout << ">" << sProduction << endl;
+			cout << sWorkers << endl;
+			cout << sArmy << endl;
+			cout << sWorld << endl;
+			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "RESET GAME" << endl;
+			cout << "EXIT" << endl;
+			break;
+		case 4:
+			cout << sQuests << endl;
+			cout << sTown << endl;
+			cout << sProduction << endl;
+			cout << ">" << sWorkers << endl;
+			cout << sArmy << endl;
+			cout << sWorld << endl;
+			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "RESET GAME" << endl;
+			cout << "EXIT" << endl;
+			break;
+		case 5:
+			cout << sQuests << endl;
+			cout << sTown << endl;
+			cout << sProduction << endl;
+			cout << sWorkers << endl;
+			cout << ">" << sArmy << endl;
+			cout << sWorld << endl;
+			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "RESET GAME" << endl;
+			cout << "EXIT" << endl;
+			break;
+		case 6:
+			cout << sQuests << endl;
+			cout << sTown << endl;
+			cout << sProduction << endl;
+			cout << sWorkers << endl;
+			cout << sArmy << endl;
+			cout << ">" << sWorld << endl;
+			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "RESET GAME" << endl;
+			cout << "EXIT" << endl;
+			break;
+		case 7:
+			cout << sQuests << endl;
+			cout << sTown << endl;
+			cout << sProduction << endl;
+			cout << sWorkers << endl;
+			cout << sArmy << endl;
+			cout << sWorld << endl;
+			cout << ">" << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "RESET GAME" << endl;
+			cout << "EXIT" << endl;
+			break;
+		case 8:
+			cout << sQuests << endl;
+			cout << sTown << endl;
+			cout << sProduction << endl;
+			cout << sWorkers << endl;
+			cout << sArmy << endl;
+			cout << sWorld << endl;
+			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << ">" << "RESET GAME" << endl;
+			cout << "EXIT" << endl;
+			break;
+		case 9:
+			cout << sQuests << endl;
+			cout << sTown << endl;
+			cout << sProduction << endl;
+			cout << sWorkers << endl;
+			cout << sArmy << endl;
+			cout << sWorld << endl;
+			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "RESET GAME" << endl;
+			cout << ">" << "EXIT" << endl;
+			break;
+		default:
+			break;
+		}
+		#endif
 		//checks the user input, arrows move around the selection and enter checks what selection you had, plus is a debug key
 		input = _getch();
 		switch (input)

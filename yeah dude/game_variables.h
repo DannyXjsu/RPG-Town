@@ -71,4 +71,4 @@ bool bArmoryUnlocked = false;
 bool bBarracksUnlocked = false;
 
 //just options size
-const INT8 OptionsSize = 9;
+const int OptionsSize = 9;
