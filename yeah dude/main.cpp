@@ -4,7 +4,7 @@
 #ifdef _WIN32
 #include <conio.h>
 #else
-//#include <curses.h>
+#include <curses.h>
 #endif
 
 #include "system_console.h"
@@ -32,7 +32,7 @@ int main() {
 	const string sQuestion = "?";
 
 	#ifndef _WIN32
-	initscr();
+	//initscr();
 	#endif
 
 	start: //used for goto
