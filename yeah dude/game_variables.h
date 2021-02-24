@@ -34,16 +34,16 @@ int iArmoryStoneRequire = 300 * iMulti; //Requirement to build
 int iBarracksBricksRequire = 1400 * iMulti; //Requirement to build
 int iBarracksBoardsRequire = 1000 * iMulti; //Requirement to build
 
-INT16 iPopulation = 0; //Population
+int iPopulation = 0; //Population
 int iFood = 0; //Amount of food
-INT8 selection = 1; //Used for selecting options in the buffer
-INT8 selected = 1; //Displays what you have selected in main.cpp
-const INT8 iScreenSize = 120; //Size of the console screen
-const INT8 iOptionsDashSize = 20; //Size of the dashes used for options
-INT16 iArmyMax = 0; //Maximum amount of army
-INT16 iArmy = 0; //Amount of army
-INT16 iWorkers;
-INT16 iFreeWorkers;
+int selection = 1; //Used for selecting options in the buffer
+int selected = 1; //Displays what you have selected in main.cpp
+const int iScreenSize = 120; //Size of the console screen
+const int iOptionsDashSize = 20; //Size of the dashes used for options
+int iArmyMax = 0; //Maximum amount of army
+int iArmy = 0; //Amount of army
+int iWorkers;
+int iFreeWorkers;
 
 short iFarmer = 0;
 short iLogger = 0;
