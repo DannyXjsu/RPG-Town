@@ -1,7 +1,12 @@
 //Adds functions to make text colored (only black and white so far), use selection_color(); to make text background white and text black and default_color() for the opposite;
 
 #pragma once
+
+#ifdef _WIN32 //Checks if the OS is windows or not
 #include <Windows.h>
+#else
+#include <unistd.h>
+#endif
 
 // Some crazy shit i copied from the internet, i think what it does is just defines hStdOut as some windows.h function thing so we can later use it for the SetConsoleTextAttribute thing
 HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);

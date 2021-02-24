@@ -1,6 +1,11 @@
 #include <iostream>
 #include <fstream>
+
+#ifdef _WIN32
 #include <conio.h>
+#else
+#include <curses.h>
+#endif
 
 #include "system_console.h"
 #include "system_color.h"
@@ -30,6 +35,7 @@ int main() {
 	start: //used for goto
 	while (true) {
 		SaveGame();
+		UpdatePopulation();
 		if (selection > OptionsSize) {
 			selection = 1;
 		}

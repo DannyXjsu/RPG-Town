@@ -7,16 +7,22 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RPG Town", "yeah dude\yeah 
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Debug|ARM.ActiveCfg = Debug|ARM
+		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Debug|ARM.Build.0 = Debug|ARM
 		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Debug|x64.ActiveCfg = Debug|x64
 		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Debug|x64.Build.0 = Debug|x64
 		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Debug|x86.ActiveCfg = Debug|Win32
 		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Debug|x86.Build.0 = Debug|Win32
+		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Release|ARM.ActiveCfg = Release|ARM
+		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Release|ARM.Build.0 = Release|ARM
 		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Release|x64.ActiveCfg = Release|x64
 		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Release|x64.Build.0 = Release|x64
 		{D2BAA1B0-C268-45D8-A493-147B5B875F75}.Release|x86.ActiveCfg = Release|Win32

@@ -120,7 +120,7 @@ int ResetGameMenu() {
 	return 2;
 }
 void ResetGame() {
-	shHouse = 0; //Amount of houses
+	shHouse = 1; //Amount of houses
 	shStorage = 0; //Amount of Storages
 	shMonument = 0; //Amount of Monuments
 	shFarm = 0; //Amount of Farms
@@ -149,6 +149,8 @@ void ResetGame() {
 	selected = 1;
 	iArmyMax = 0;
 	iArmy = 0;
+	iWorkers = 0;
+	iFreeWorkers = 0;
 
 	iWood = 0;
 	iStone = 0;
@@ -165,4 +167,11 @@ void ResetGame() {
 	bLumbermillUnlocked = false;
 	bArmoryUnlocked = false;
 	bBarracksUnlocked = false;
+}
+
+void UpdatePopulation() {
+	if (iPopulation < 0) {
+		iPopulation = 0;
+	}
+	iPopulation = shHouse * 2;
 }

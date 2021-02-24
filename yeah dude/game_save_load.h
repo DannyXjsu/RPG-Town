@@ -53,6 +53,8 @@ void LoadGame() {
 	saveFile >> iFood;
 	saveFile >> iArmyMax;
 	saveFile >> iArmy;
+	saveFile >> iWorkers;
+	saveFile >> iFreeWorkers;
 	saveFile >> iWood;
 	saveFile >> iStone;
 	saveFile >> iLeather;
