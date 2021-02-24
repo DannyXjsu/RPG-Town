@@ -5,4 +5,4 @@ This game is a copy of a mobile game with similar name, the mobile game is an id
 
 In case you're wondering why there's a folder called "yeah dude", i just didn't have a creative name when i created the project so i put yeah dude
 
-Not compatible with Linux or MacOS yet
+Not compatible with Linux yet
