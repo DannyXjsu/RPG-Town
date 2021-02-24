@@ -5,7 +5,7 @@
 using namespace std;
 
 void SaveGame() {
-
+	//NEEDS TO BE UPDATED
 	ofstream saveFile("autosave.save");
 	saveFile << iPopulation << endl;
 	saveFile << iFood << endl;

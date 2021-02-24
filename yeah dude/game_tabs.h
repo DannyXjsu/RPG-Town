@@ -25,6 +25,7 @@ void cTown() {
 		drawLine(iScreenSize);
 		cout << "==========UTILITY==========" << endl;
 		drawLine(iScreenSize);
+		//this bunch of if statements just draw a list of possible buildins you can do
 		if (bHouseUnlocked == true) {
 			cout << "HOUSE" << endl;
 			cout << "Total: " << shHouse << endl;

@@ -13,6 +13,7 @@
 using namespace std;
 
 int main() {
+	// I don't remember why i did this, i probably had some issue and had to make the menu options into variables
 	const string sQuests = "QUESTS";
 	const string sTown = "TOWN";
 	const string sProduction = "PRODUCTION";
@@ -20,7 +21,7 @@ int main() {
 	const string sArmy = "ARMY";
 	const string sWorld = "WORLD";
 	const string sQuestion = "?";
-	start:
+	start: //used for goto
 	while (true) {
 		SaveGame();
 		if (selection > 8) {
@@ -43,6 +44,7 @@ int main() {
 			cTown();
 			Clear();
 			selected = 1;
+			//i didn't find a better way of doing this wihout using goto
 			goto start;
 			break;
 		case 3:
@@ -74,6 +76,7 @@ int main() {
 			break;
 		}
 		drawLine(iScreenSize);
+		//This draws the menu options depending on what selection you have
 		switch (selection)
 		{
 		case 1:
@@ -182,7 +185,7 @@ int main() {
 		default:
 			break;
 		}
-
+		//checks the user input, arrows move around the selection and enter checks what selection you had, plus is a debug key
 		input = _getch();
 		switch (input)
 		{

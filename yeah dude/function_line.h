@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-void drawLine(int input)//Puts '-' with the given amount of dashes
+void drawLine(int input) //Puts '-' with the given amount of dashes
 {
 	int maxDash = input;
 	int dashAmount = 1;

@@ -4,10 +4,11 @@
 
 using namespace std;
 
+//just town status
 void TownStatus() {
 	cout << "|Populaton: " << iPopulation << "|Army: " << iArmy << "/" << iArmyMax << "|Food: " << iFood << "|" << endl;
 }
-
+//menu for exiting the game, for some reason has some weird glitch where you press no and it doesn't actually work but if you do it again it works, idk why that happens
 int ExitGame() {
 	selected = selection;
 	selection = 2;
