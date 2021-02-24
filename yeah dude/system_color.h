@@ -4,10 +4,6 @@
 
 #ifdef _WIN32 //Checks if the OS is windows or not
 #include <Windows.h>
-#else
-#include <unistd.h>
-#endif
-
 // Some crazy shit i copied from the internet, i think what it does is just defines hStdOut as some windows.h function thing so we can later use it for the SetConsoleTextAttribute thing
 HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -21,3 +17,6 @@ void default_color() {
 	SetConsoleTextAttribute(hStdOut, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);  // I think how this works i's; it sets the text attribute for hStdOut, which i think it's the console we have open, to have the foregroud color (aka as the text color) both red, green and blue, which all of them combine is white, since i didn't set anything for the background, it will be black
 }
 
+#else
+#include <unistd.h>
+#endif
