@@ -352,7 +352,11 @@ int main() {
 		}
 		#endif
 		//checks the user input, arrows move around the selection and enter checks what selection you had, plus is a debug key
+		#ifdef _WIN32
 		input = _getch();
+		#else
+		input = getchar();
+		#endif
 		switch (input)
 		{
 		case KEY_ARROWUP:
