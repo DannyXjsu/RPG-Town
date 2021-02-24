@@ -19,9 +19,17 @@ int main() {
 	const string sArmy = "ARMY";
 	const string sWorld = "WORLD";
 	const string sQuestion = "?";
-
+	start:
 	while (true) {
 		SaveGame();
+		if (selection > 7) {
+			selection = 1;
+		}
+		else if (selection < 1) {
+			selection = 7;
+		}
+
+		Clear();
 		cout << "|RPG Town|" << endl;
 		drawLine(iScreenSize);
 		switch (selected)
@@ -31,6 +39,9 @@ int main() {
 			break;
 		case 2:
 			cTown();
+			Clear();
+			selected = 1;
+			goto start;
 			break;
 		case 3:
 			cProduction();
@@ -151,14 +162,5 @@ int main() {
 			iArmy += 2;
 			iFood += 3;
 		}
-
-		if (selection > 7) {
-			selection = 1;
-		}
-		else if (selection < 1) {
-			selection = 7;
-		}
-
-		Clear();
 	}
 }

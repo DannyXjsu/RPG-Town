@@ -136,6 +136,7 @@ void cTown() {
 		default_color();
 		drawLine(iOptionsDashSize);
 		cout << endl << "BACK" << endl;
+		break;
 	case 9:
 		cout << "BUILD A HOUSE" << endl;
 		cout << "BUILD A STORAGE" << endl;
@@ -163,14 +164,37 @@ void cTown() {
 		selection++;
 		break;
 	case KEY_ENTER:
+		switch (selection)
+		{
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			return;
+		default:
+			break;
+		}
 		break;
 	}
-
-	if (selection > 8) {
+	
+	if (selection > 9) {
 		selection = 1;
 	}
 	else if (selection < 1) {
-		selection = 8;
+		selection = 9;
 	}
 
 	}
