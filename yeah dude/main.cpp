@@ -8,6 +8,7 @@
 #include "game_tabs.h"
 #include "game_variables.h"
 #include "game_save.h"
+#include "game_functions.h"
 
 using namespace std;
 
@@ -22,15 +23,16 @@ int main() {
 	start:
 	while (true) {
 		SaveGame();
-		if (selection > 7) {
+		if (selection > 8) {
 			selection = 1;
 		}
 		else if (selection < 1) {
-			selection = 7;
+			selection = 8;
 		}
 
 		Clear();
-		cout << "|RPG Town|" << endl;
+		cout << "|RPG Town|";
+		TownStatus();
 		drawLine(iScreenSize);
 		switch (selected)
 		{
@@ -58,6 +60,16 @@ int main() {
 		case 7:
 			c();
 			break;
+		case 8:
+			if (ExitGame() == 1) {
+				return 1;
+			}
+			else {
+				selection = 1;
+				Clear();
+			}
+			goto start;
+			break;
 		default:
 			break;
 		}
@@ -74,6 +86,8 @@ int main() {
 			cout << sArmy << endl;
 			cout << sWorld << endl;
 			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "EXIT" << endl;
 			break;
 		case 2:
 			cout << sQuests << endl;
@@ -85,6 +99,8 @@ int main() {
 			cout << sArmy << endl;
 			cout << sWorld << endl;
 			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "EXIT" << endl;
 			break;
 		case 3:
 			cout << sQuests << endl;
@@ -96,6 +112,8 @@ int main() {
 			cout << sArmy << endl;
 			cout << sWorld << endl;
 			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "EXIT" << endl;
 			break;
 		case 4:
 			cout << sQuests << endl;
@@ -107,6 +125,8 @@ int main() {
 			cout << sArmy << endl;
 			cout << sWorld << endl;
 			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "EXIT" << endl;
 			break;
 		case 5:
 			cout << sQuests << endl;
@@ -118,6 +138,8 @@ int main() {
 			default_color();
 			cout << sWorld << endl;
 			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "EXIT" << endl;
 			break;
 		case 6:
 			cout << sQuests << endl;
@@ -129,6 +151,8 @@ int main() {
 			cout << sWorld << endl;
 			default_color();
 			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			cout << "EXIT" << endl;
 			break;
 		case 7:
 			cout << sQuests << endl;
@@ -140,7 +164,21 @@ int main() {
 			selection_color();
 			cout << sQuestion << endl;
 			default_color();
+			drawLine(iOptionsDashSize);
+			cout << "EXIT" << endl;
 			break;
+		case 8:
+			cout << sQuests << endl;
+			cout << sTown << endl;
+			cout << sProduction << endl;
+			cout << sWorkers << endl;
+			cout << sArmy << endl;
+			cout << sWorld << endl;
+			cout << sQuestion << endl;
+			drawLine(iOptionsDashSize);
+			selection_color();
+			cout << "EXIT" << endl;
+			default_color();
 		default:
 			break;
 		}
@@ -161,6 +199,8 @@ int main() {
 			iPopulation++;
 			iArmy += 2;
 			iFood += 3;
+			bHouseUnlocked++;
 		}
 	}
+	return 1;
 }

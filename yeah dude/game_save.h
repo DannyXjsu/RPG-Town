@@ -24,6 +24,6 @@ void SaveGame() {
 	saveFile << shStonework << endl;
 	saveFile << shLumbermill << endl;
 	saveFile << shArmory << endl;
-	saveFile << shBarracks << endl;
+	saveFile << shBarracks;
 	saveFile.close();
 }

@@ -18,18 +18,43 @@ short shBarracks = 0; //Amount of Barracks
 
 char input; //Input
 
+const double iMulti = 1.4;
+
+double iHouseWoodRequire = 200 * iMulti; //Requirement to build
+double iHouseStoneRequire = 200 * iMulti; //Requirement to build
+double iStorageBricksRequire = 500 * iMulti; //Requirement to build
+double iStorageBoardsRequire = 500 * iMulti; //Requirement to build
+double iMonumentBricksRequire = 800 * iMulti; //Requirement to build
+double iMonumentBoardsRequire = 800 * iMulti; //Requirement to build
+double iFarmWoodRequire = 200 * iMulti; //Requirement to build
+double iStoneworksStoneRequire = 400 * iMulti; //Requirement to build
+double iLumbermillWoodRequire = 1000 * iMulti; //Requirement to build
+double iArmoryLeatherRequire = 300 * iMulti; //Requirement to build
+double iArmoryStoneRequire = 300 * iMulti; //Requirement to build
+double iBarracksBricksRequire = 1400 * iMulti; //Requirement to build
+double iBarracksBoardsRequire = 1000 * iMulti; //Requirement to build
+
 int iPopulation = 0; //Population
 int iFood = 0; //Amount of food
 INT8 selection = 1; //Used for selecting options in the buffer
-INT8 selected = 1; //displays what you have selected in main.cpp
-INT8 iScreenSize = 120;
-INT8 iOptionsDashSize = 20;
+INT8 selected = 1; //Displays what you have selected in main.cpp
+INT8 iScreenSize = 120; //Size of the console screen
+INT8 iOptionsDashSize = 20; //Size of the dashes used for options
 INT16 iArmyMax = 0; //Maximum amount of army
 INT16 iArmy = 0; //Amount of army
 
-int iWood = 0;
-int iStone = 0;
-int iLeather = 0;
-int iBoards = 0;
-int iArmor = 0;
-int iBricks = 0;
+int iWood = 0; //Amount of Wood
+int iStone = 0; //Amount of Stone
+int iLeather = 0; //Amount of Leather
+int iBoards = 0; //Amount of Boards
+int iArmor = 0; //Amount of Armor
+int iBricks = 0; //Amount of Bricks
+
+bool bHouseUnlocked = true;
+bool bStorageUnlocked = false;
+bool bMomumentUnlocked = false;
+bool bFarmUnlocked = true;
+bool bStoneworksUnlocked = false;
+bool bLumbermillUnlocked = false;
+bool bArmoryUnlocked = false;
+bool bBarracksUnlocked = false;

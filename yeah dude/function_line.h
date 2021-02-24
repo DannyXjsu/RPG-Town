@@ -9,4 +9,5 @@ void drawLine(int input)//Puts '-' with the given amount of dashes
 		std::cout << "-";
 		dashAmount++;
 	}
+	std::cout << std::endl;
 }
