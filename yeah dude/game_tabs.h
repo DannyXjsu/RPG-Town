@@ -30,18 +30,21 @@ void cTown() {
 			cout << "HOUSE" << endl;
 			cout << "Total: " << shHouse << endl;
 			cout << "Requirements: " << iHouseWoodRequire << " Wood | " << iHouseStoneRequire << " Stones" << endl;
+			cout << "You have: " << iWood << " Wood | " << iStone << " Stones" << endl;
 			drawLine(iOptionsDashSize);
 		}
 		if (bStorageUnlocked == true) {
 			cout << "STORAGE" << endl;
 			cout << "Total: " << shStorage << endl;
 			cout << "Requirements: " << iStorageBoardsRequire << " Boards | " << iStorageBricksRequire << " Bricks" << endl;
+			cout << "You have: " << iBoards << " Boards | " << iBricks << " Bricks" << endl;
 			drawLine(iOptionsDashSize);
 		}
 		if (bMomumentUnlocked == true) {
 			cout << "MONUMENT" << endl;
 			cout << "Total: " << shMonument << endl;
 			cout << "Requirements: " << iMonumentBoardsRequire << " Boards | " << iMonumentBricksRequire << " Bricks" << endl;
+			cout << "You have: " << iBoards << " Boards | " << iBricks << " Bricks" << endl;
 			drawLine(iScreenSize);
 		}
 		cout << "=======PRODUCTION=======" << endl;
@@ -50,18 +53,21 @@ void cTown() {
 			cout << "FARM" << endl;
 			cout << "Total: " << shFarm << endl;
 			cout << "Requirements: " << iFarmWoodRequire << " Wood" << endl;
+			cout << "You have: " << iWood << " Wood" << endl;
 			drawLine(iOptionsDashSize);
 		}
 		if (bStoneworksUnlocked == true) {
 			cout << "STONEWORKS" << endl;
 			cout << "Total: " << shStonework << endl;
 			cout << "Requirements: " << iStoneworksStoneRequire << " Stones" << endl;
+			cout << "You have: " << iStone << " Stones" << endl;
 			drawLine(iOptionsDashSize);
 		}
 		if (bLumbermillUnlocked == true) {
 			cout << "LUMBERMILL" << endl;
 			cout << "Total: " << shLumbermill << endl;
 			cout << "Requirements: " << iLumbermillWoodRequire << " Wood" << endl;
+			cout << "You have: " << iWood << " Wood" << endl;
 			drawLine(iScreenSize);
 		}
 		cout << "=========SERVICES=========" << endl;
@@ -70,12 +76,14 @@ void cTown() {
 			cout << "ARMORY" << endl;
 			cout << "Total: " << shArmory << endl;
 			cout << "Requirements: " << iArmoryLeatherRequire << " Leather | " << iArmoryStoneRequire << " Stones" << endl;
+			cout << "You have: " << iLeather << " Leather | " << iStone << " Stones" << endl;
 			drawLine(iOptionsDashSize);
 		}
 		if (bBarracksUnlocked == true) {
 			cout << "BARRACKS" << endl;
 			cout << "Total: " << shBarracks << endl;
 			cout << "Requirements: " << iBarracksBoardsRequire << " Boards | " << iBarracksBricksRequire << " Bricks" << endl;
+			cout << "You have: " << iBoards << " Boards | " << iBricks << " Bricks" << endl;
 			drawLine(iScreenSize);
 		}
 		switch (selection)
@@ -232,6 +240,11 @@ void cTown() {
 			{
 			case 1:
 				if (iWood >= iHouseWoodRequire || iStone >= iHouseStoneRequire) {
+					iWood -= iHouseWoodRequire;
+					iStone -= iHouseStoneRequire;
+					shHouse++;
+					iPopulation = shHouse * 2;
+					iHouseWoodRequire *= iMulti;
 
 				}
 				else {

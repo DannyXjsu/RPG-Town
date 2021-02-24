@@ -35,10 +35,10 @@
     <ClInclude Include="game_variables.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="game_save.h">
+    <ClInclude Include="game_functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="game_functions.h">
+    <ClInclude Include="game_save_load.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -145,7 +145,7 @@
   <ItemGroup>
     <ClInclude Include="function_line.h" />
     <ClInclude Include="game_functions.h" />
-    <ClInclude Include="game_save.h" />
+    <ClInclude Include="game_save_load.h" />
     <ClInclude Include="game_tabs.h" />
     <ClInclude Include="game_variables.h" />
     <ClInclude Include="system_color.h" />
