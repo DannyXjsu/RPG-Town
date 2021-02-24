@@ -4,7 +4,7 @@
 #ifdef _WIN32
 #include <conio.h>
 #else
-#include <curses.h>
+//#include <curses.h>
 #endif
 
 #include "system_console.h"
