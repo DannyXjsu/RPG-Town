@@ -20,6 +20,7 @@ int ExitGame() {
 		cout << "|Are you sure you wanna quit the game?|" << endl;
 		cout << "---------------------------------------" << endl;
 		cout << "|";
+		#ifdef _WIN32
 		if (selection == 1) {
 			selection_color();
 			cout << "       YES        ";
@@ -38,6 +39,22 @@ int ExitGame() {
 		}
 		cout << "---------------------------------------" << endl;
 		input = _getch();
+		#else
+		if (selection == 1) {
+			cout << "     ==YES==      ";
+			cout << "|";
+			cout << "        no        ";
+			cout << "|" << endl;
+	}
+		else {
+			cout << "       yes        ";
+			cout << "|";
+			cout << "      ==NO==      ";
+			cout << "|" << endl;
+		}
+		cout << "---------------------------------------" << endl;
+		input = getchar();
+		#endif
 		switch (input)
 		{
 		case KEY_ARROWLEFT:
@@ -74,7 +91,7 @@ int ResetGameMenu() {
 		cout << "----------------------------------------" << endl;
 		cout << "|Are you sure you wanna reset the game?|" << endl;
 		cout << "----------------------------------------" << endl;
-		cout << "|";
+		#ifdef _WIN32
 		if (selection == 1) {
 			selection_color();
 			cout << "       YES        ";
@@ -93,6 +110,22 @@ int ResetGameMenu() {
 		}
 		cout << "---------------------------------------" << endl;
 		input = _getch();
+		#else
+		if (selection == 1) {
+			cout << "     ==YES==      ";
+			cout << "|";
+			cout << "        no        ";
+			cout << "|" << endl;
+		}
+		else {
+			cout << "       yes        ";
+			cout << "|";
+			cout << "      ==NO==      ";
+			cout << "|" << endl;
+		}
+		cout << "---------------------------------------" << endl;
+		input = getchar();
+		#endif
 		switch (input)
 		{
 		case KEY_ARROWLEFT:

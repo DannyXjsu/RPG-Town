@@ -92,6 +92,7 @@ void cTown() {
 			cout << "You have: " << iBoards << " Boards | " << iBricks << " Bricks" << endl;
 			drawLine(iScreenSize);
 		}
+		#ifdef _WIN32
 		switch (selection)
 		{
 		case 1:
@@ -230,7 +231,7 @@ void cTown() {
 			cout << endl;
 		default:
 			break;
-		}
+	}
 
 		input = _getch();
 		switch (input)
@@ -281,6 +282,179 @@ void cTown() {
 			}
 			break;
 		}
+		#else
+		switch (selection)
+		{
+		case 1:
+			cout << ">" << "BUILD A HOUSE";
+			cout << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 2:
+			cout << "BUILD A HOUSE" << endl;
+			cout << ">" << "BUILD A STORAGE";
+			cout << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 3:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << ">" << "BUILD A MONUMENT";
+			cout << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 4:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << ">" << "BUILD A FARM";
+			cout << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 5:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << ">" << "BUILD STONEWORKS";
+			cout << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 6:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << ">" << "BUILD A LUMBERMILL";
+			cout << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 7:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << ">" << "BUILD ARMORY";
+			cout << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 8:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << ">" << "BUILD BARRACKS";
+			cout << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 9:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << ">" << "BACK";
+			cout << endl;
+		default:
+			break;
+		}
+
+		input = getchar();
+		switch (input)
+		{
+		case KEY_ARROWUP:
+			selection--;
+			break;
+		case KEY_ARROWDOWN:
+			selection++;
+			break;
+		case KEY_ENTER:
+			switch (selection)
+			{
+			case 1:
+				if (iWood >= iHouseWoodRequire && iStone >= iHouseStoneRequire) {
+					iWood -= iHouseWoodRequire;
+					iStone -= iHouseStoneRequire;
+					shHouse++;
+					UpdatePopulation();
+					iHouseWoodRequire *= iMulti;
+
+				}
+				else {
+					Clear();
+					cout << "NOT ENOUGH MATERIALS" << endl;
+					sleep(1000);
+					Clear();
+				}
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				break;
+			case 8:
+				break;
+			case 9:
+				return;
+			default:
+				break;
+			}
+			break;
+		}
+		#endif
 
 		if (selection > 9) {
 			selection = 1;
@@ -366,6 +540,7 @@ void cWorkers() {
 			cout << "You have: " << iLeather << " Leather | " << iStone << " Stones" << endl;
 			drawLine(iOptionsDashSize);
 		}
+		#ifdef _WIN32
 		switch (selection)
 		{
 		case 1:
@@ -555,6 +730,179 @@ void cWorkers() {
 			}
 			break;
 		}
+		#else
+		switch (selection)
+		{
+		case 1:
+			cout << ">" << "BUILD A HOUSE";
+			cout << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 2:
+			cout << "BUILD A HOUSE" << endl;
+			cout << ">" << "BUILD A STORAGE";
+			cout << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 3:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << ">" << "BUILD A MONUMENT";
+			cout << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 4:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << ">" << "BUILD A FARM";
+			cout << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 5:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << ">" << "BUILD STONEWORKS";
+			cout << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 6:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << ">" << "BUILD A LUMBERMILL";
+			cout << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 7:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << ">" << "BUILD ARMORY";
+			cout << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 8:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << ">" << "BUILD BARRACKS";
+			cout << endl;
+			drawLine(iOptionsDashSize);
+			cout << "BACK" << endl;
+			break;
+		case 9:
+			cout << "BUILD A HOUSE" << endl;
+			cout << "BUILD A STORAGE" << endl;
+			cout << "BUILD A MONUMENT" << endl;
+			cout << "BUILD A FARM" << endl;
+			cout << "BUILD STONEWORKS" << endl;
+			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "BUILD ARMORY" << endl;
+			cout << "BUILD BARRACKS" << endl;
+			drawLine(iOptionsDashSize);
+			cout << ">" << "BACK";
+			cout << endl;
+		default:
+			break;
+		}
+
+		input = getchar();
+		switch (input)
+		{
+		case KEY_ARROWUP:
+			selection--;
+			break;
+		case KEY_ARROWDOWN:
+			selection++;
+			break;
+		case KEY_ENTER:
+			switch (selection)
+			{
+			case 1:
+				if (iWood >= iHouseWoodRequire && iStone >= iHouseStoneRequire) {
+					iWood -= iHouseWoodRequire;
+					iStone -= iHouseStoneRequire;
+					shHouse++;
+					UpdatePopulation();
+					iHouseWoodRequire *= iMulti;
+
+				}
+				else {
+					Clear();
+					cout << "NOT ENOUGH MATERIALS" << endl;
+					sleep(1000);
+					Clear();
+				}
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				break;
+			case 8:
+				break;
+			case 9:
+				return;
+			default:
+				break;
+			}
+			break;
+		}
+		#endif
 
 		if (selection > 9) {
 			selection = 1;
