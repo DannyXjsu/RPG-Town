@@ -32,9 +32,7 @@ int main() {
 	const string sQuestion = "?";
 
 	#ifndef _WIN32
-	initscr(); //if this causes error comment it out
-	cbreak();
-	noecho();
+	initscr();
 	#endif
 
 	start: //used for goto
