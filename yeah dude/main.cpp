@@ -32,7 +32,9 @@ int main() {
 	const string sQuestion = "?";
 
 	#ifndef _WIN32
-	initscr();
+	initscr(); //if this causes error comment it out
+	cbreak();
+	noecho();
 	#endif
 
 	start: //used for goto
@@ -355,7 +357,7 @@ int main() {
 		#ifdef _WIN32
 		input = _getch();
 		#else
-		input = getch();
+		input = getche();
 		#endif
 		switch (input)
 		{
