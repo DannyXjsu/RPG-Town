@@ -386,11 +386,11 @@ int main() {
 		case KEY_ENTER:
 			selected = selection;
 			break;
-		case KEY_PLUS:
+		/*case KEY_PLUS:
 			iPopulation++;
 			iArmy += 2;
 			iFood += 3;
-			bHouseUnlocked++;
+			bHouseUnlocked++;*/
 		}
 		#endif
 	}
