@@ -357,7 +357,7 @@ int main() {
 		#ifdef _WIN32
 		input = _getch();
 		#else
-		input = getche();
+		input = getch();
 		#endif
 		switch (input)
 		{
