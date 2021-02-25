@@ -356,9 +356,6 @@ int main() {
 		//checks the user input, arrows move around the selection and enter checks what selection you had, plus is a debug key
 		#ifdef _WIN32
 		input = _getch();
-		#else
-		input = getch();
-		#endif
 		switch (input)
 		{
 		case KEY_ARROWUP:
@@ -376,6 +373,26 @@ int main() {
 			iFood += 3;
 			bHouseUnlocked++;
 		}
+		#else
+		input = getch();
+		switch (input)
+		{
+		case KEY_UP:
+			selection--;
+			break;
+		case KEY_DOWN:
+			selection++;
+			break;
+		case KEY_ENTER:
+			selected = selection;
+			break;
+		case KEY_PLUS:
+			iPopulation++;
+			iArmy += 2;
+			iFood += 3;
+			bHouseUnlocked++;
+		}
+		#endif
 	}
 	return 1;
 }

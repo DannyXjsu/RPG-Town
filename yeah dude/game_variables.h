@@ -1,11 +1,13 @@
 #pragma once
 
+#ifdef _WIN32
 #define KEY_ARROWUP 72
 #define KEY_ARROWDOWN 80
 #define KEY_ARROWLEFT 75
 #define KEY_ARROWRIGHT 77
 #define KEY_ENTER 13
 #define KEY_PLUS 43
+#endif
 
 short shHouse = 1; //Amount of houses
 short shStorage = 0; //Amount of Storages
