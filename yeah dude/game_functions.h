@@ -39,22 +39,7 @@ int ExitGame() {
 		}
 		cout << "---------------------------------------" << endl;
 		input = _getch();
-		#else
-		if (selection == 1) {
-			cout << "     ==YES==      ";
-			cout << "|";
-			cout << "        no        ";
-			cout << "|" << endl;
-	}
-		else {
-			cout << "       yes        ";
-			cout << "|";
-			cout << "      ==NO==      ";
-			cout << "|" << endl;
-		}
-		cout << "---------------------------------------" << endl;
-		input = getchar();
-		#endif
+
 		switch (input)
 		{
 		case KEY_ARROWLEFT:
@@ -78,6 +63,46 @@ int ExitGame() {
 		{
 			selection = 2;
 		}
+		#else
+		if (selection == 1) {
+			cout << "     ==YES==      ";
+			cout << "|";
+			cout << "        no        ";
+			cout << "|" << endl;
+	}
+		else {
+			cout << "       yes        ";
+			cout << "|";
+			cout << "      ==NO==      ";
+			cout << "|" << endl;
+		}
+		cout << "---------------------------------------" << endl;
+		input = getch();
+
+		switch (input)
+		{
+		case KEY_LEFT:
+			selection--;
+			break;
+		case KEY_RIGHT:
+			selection++;
+			break;
+		case KEY_ENTER:
+			doLoop = false;
+			return selection;
+			break;
+		default:
+			break;
+		}
+		if (selection > 2)
+		{
+			selection = 1;
+		}
+		else if (selection < 1)
+		{
+			selection = 2;
+		}
+		#endif
 	}
 	return 2;
 }
@@ -110,22 +135,6 @@ int ResetGameMenu() {
 		}
 		cout << "---------------------------------------" << endl;
 		input = _getch();
-		#else
-		if (selection == 1) {
-			cout << "     ==YES==      ";
-			cout << "|";
-			cout << "        no        ";
-			cout << "|" << endl;
-		}
-		else {
-			cout << "       yes        ";
-			cout << "|";
-			cout << "      ==NO==      ";
-			cout << "|" << endl;
-		}
-		cout << "---------------------------------------" << endl;
-		input = getch();
-		#endif
 		switch (input)
 		{
 		case KEY_ARROWLEFT:
@@ -149,6 +158,45 @@ int ResetGameMenu() {
 		{
 			selection = 2;
 		}
+		#else
+		if (selection == 1) {
+			cout << "     ==YES==      ";
+			cout << "|";
+			cout << "        no        ";
+			cout << "|" << endl;
+		}
+		else {
+			cout << "       yes        ";
+			cout << "|";
+			cout << "      ==NO==      ";
+			cout << "|" << endl;
+		}
+		cout << "---------------------------------------" << endl;
+		input = getch();
+		switch (input)
+		{
+		case KEY_LEFT:
+			selection--;
+			break;
+		case KEY_RIGHT:
+			selection++;
+			break;
+		case KEY_ENTER:
+			doLoop = false;
+			return selection;
+			break;
+		default:
+			break;
+		}
+		if (selection > 2)
+		{
+			selection = 1;
+		}
+		else if (selection < 1)
+		{
+			selection = 2;
+		}
+		#endif
 	}
 	return 2;
 }

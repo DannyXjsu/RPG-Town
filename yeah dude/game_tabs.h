@@ -405,13 +405,13 @@ void cTown() {
 			break;
 		}
 
-		input = getchar();
+		input = getch();
 		switch (input)
 		{
-		case KEY_ARROWUP:
+		case KEY_UP:
 			selection--;
 			break;
-		case KEY_ARROWDOWN:
+		case KEY_DOWN:
 			selection++;
 			break;
 		case KEY_ENTER:
@@ -856,10 +856,10 @@ void cWorkers() {
 		input = getch();
 		switch (input)
 		{
-		case KEY_ARROWUP:
+		case KEY_UP:
 			selection--;
 			break;
-		case KEY_ARROWDOWN:
+		case KEY_DOWN:
 			selection++;
 			break;
 		case KEY_ENTER:
