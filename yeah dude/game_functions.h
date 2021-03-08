@@ -6,7 +6,7 @@ using namespace std;
 
 //just town status
 void TownStatus() {
-	cout << "|Populaton: " << iPopulation << "|Army: " << iArmy << "/" << iArmyMax << "|Food: " << iFood << "|" << endl;
+	cout << "|Populaton: " << iPopulation << "|Workers: " << iFreeWorkers << "/" << iWorkers <<"|Army: " << iArmy << "/" << iArmyMax << "|Food: " << iFood << "|" << endl;
 }
 
 //menu for exiting the game, for some reason has some weird glitch where you press no and it doesn't actually work but if you do it again it works, idk why that happens
@@ -200,7 +200,8 @@ int ResetGameMenu() {
 	}
 	return 2;
 }
-void ResetGame() {
+void ResetGame() { //resets everything
+
 	shHouse = 1; //Amount of houses
 	shStorage = 0; //Amount of Storages
 	shMonument = 0; //Amount of Monuments
@@ -233,6 +234,24 @@ void ResetGame() {
 	iWorkers = 0;
 	iFreeWorkers = 0;
 
+	shFarmer = 0;
+	shLogger = 0;
+	shQuarryman = 0;
+	shAnimalHunter = 0;
+	shStonemason = 0;
+	shWoodworker = 0;
+	shLeatherworker = 0;
+	shInstructor = 0;
+
+	shFarmerMax = 0;
+	shLoggerMax = 0;
+	shQuarrymanMax = 0;
+	shAnimalHunterMax = 0;
+	shStonemasonMax = 0;
+	shWoodworkerMax = 0;
+	shLeatherworkerMax = 0;
+	shInstructorMax = 0;
+
 	iWood = 0;
 	iStone = 0;
 	iLeather = 0;
@@ -248,11 +267,36 @@ void ResetGame() {
 	bLumbermillUnlocked = false;
 	bArmoryUnlocked = false;
 	bBarracksUnlocked = false;
+
+	bFarmerUnlocked = true;
+	bLoggerUnlocked = true;
+	bQuarrymanUnlocked = true;
+	bAnimalHunterUnlocked = false;
+	bStonemasonUnlocked = false;
+	bWoodworkerUnlocked = false;
+	bLeatherworkerUnlocked = false;
+	bInstructorUnlocked = false;
 }
 
-void UpdatePopulation() {
+void UpdatePopulation() { //updates the population so it's relative to the amount of houses -- prevents glitches too
 	if (iPopulation < 0) {
 		iPopulation = 0;
 	}
 	iPopulation = shHouse * 2;
+}
+
+void UpdateWorkers() {
+	if (iWorkers < 0) {
+		iWorkers = 0;
+	}
+	shFarmerMax = shFarm * 2;
+	shLoggerMax = 30;
+	shQuarrymanMax = 30;
+	shAnimalHunterMax = iArmyMax / 2;
+	shStonemasonMax = shStonework;
+	shWoodworkerMax = shLumbermill;
+	shLeatherworkerMax = shArmory;
+	shInstructorMax = shBarracks;
+
+	iFreeWorkers = iPopulation - iWorkers;
 }

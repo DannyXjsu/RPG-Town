@@ -1,10 +1,10 @@
 #include <iostream>
 #include <fstream>
 
-#ifdef _WIN32
+#ifdef _WIN32 //checks if windows is running
 #include <conio.h>
 #else
-#include <curses.h>
+#include <curses.h> //used for linux
 #endif
 
 #include "system_console.h"
@@ -15,12 +15,18 @@
 #include "game_variables.h"
 #include "game_functions.h"
 
-using namespace std;
-
 int main() {
+
+#ifndef _WIN32
+	initscr(); //if this doesn't work comment it out
+	cbreak();
+	noecho();
+#endif
 
 	//loading save file
 	LoadGame();
+
+start: //used for goto
 
 	// I don't remember why i did this, i probably had some issue and had to make the menu options into variables
 	const string sQuests = "QUESTS";
@@ -29,18 +35,14 @@ int main() {
 	const string sWorkers = "WORKERS";
 	const string sArmy = "ARMY";
 	const string sWorld = "WORLD";
-	const string sQuestion = "?";
 
-	#ifndef _WIN32
-	initscr(); //if this doesn't work comment it out
-	cbreak();
-	noecho();
-	#endif
-
-	start: //used for goto
 	while (true) {
+		//saves the game every time it loops
 		SaveGame();
+		//updates the population every time it loops
 		UpdatePopulation();
+		UpdateWorkers();
+
 		if (selection > OptionsSize) {
 			selection = 1;
 		}
@@ -49,7 +51,7 @@ int main() {
 		}
 
 		Clear();
-		cout << "|RPG Town|";
+		std::cout << "|RPG Town|";
 		TownStatus();
 		drawLine(iScreenSize);
 		//checks what you have selected
@@ -67,6 +69,9 @@ int main() {
 			break;
 		case 3:
 			cProduction();
+			Clear();
+			selected = 1;
+			goto start;
 			break;
 		case 4:
 			cWorkers();
@@ -78,9 +83,6 @@ int main() {
 			cWorld();
 			break;
 		case 7:
-			c();
-			break;
-		case 8:
 			if (ResetGameMenu() == 1) {
 				ResetGame();
 				goto start;
@@ -91,7 +93,7 @@ int main() {
 			}
 			goto start;
 			break;
-		case 9:
+		case 8:
 			if (ExitGame() == 1) {
 				return 1;
 			}
@@ -111,128 +113,106 @@ int main() {
 		{
 		case 1:
 			selection_color();
-			cout << sQuests << endl;
+			std::cout << sQuests << endl;
 			default_color();
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 2:
-			cout << sQuests << endl;
+			std::cout << sQuests << endl;
 			selection_color();
-			cout << sTown << endl;
+			std::cout << sTown << endl;
 			default_color();
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 3:
-			cout << sQuests << endl;
-			cout << sTown << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
 			selection_color();
-			cout << sProduction << endl;
+			std::cout << sProduction << endl;
 			default_color();
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 4:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
 			selection_color();
-			cout << sWorkers << endl;
+			std::cout << sWorkers << endl;
 			default_color();
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 5:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
 			selection_color();
-			cout << sArmy << endl;
+			std::cout << sArmy << endl;
 			default_color();
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 6:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
 			selection_color();
-			cout << sWorld << endl;
+			std::cout << sWorld << endl;
 			default_color();
-			cout << sQuestion << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 7:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			selection_color();
-			cout << sQuestion << endl;
-			default_color();
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			selection_color();
+			std::cout << "RESET GAME" << endl;
+			default_color();
+			std::cout << "EXIT" << endl;
 			break;
 		case 8:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
+			std::cout << "RESET GAME" << endl;
 			selection_color();
-			cout << "RESET GAME" << endl;
-			default_color();
-			cout << "EXIT" << endl;
-			break;
-		case 9:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
-			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			selection_color();
-			cout << "EXIT" << endl;
+			std::cout << "EXIT" << endl;
 			default_color();
 			break;
 		default:
@@ -242,112 +222,92 @@ int main() {
 		switch (selection)
 		{
 		case 1:
-			cout << ">" << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << ">" << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 2:
-			cout << sQuests << endl;
-			cout << ">" << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sQuests << endl;
+			std::cout << ">" << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 3:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << ">" << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << ">" << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 4:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << ">" << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << ">" << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 5:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << ">" << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << ">" << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 6:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << ">" << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << ">" << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 7:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << ">" << sQuestion << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
+			std::cout << ">" << "RESET GAME" << endl;
+			std::cout << "EXIT" << endl;
 			break;
 		case 8:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
+			std::cout << sQuests << endl;
+			std::cout << sTown << endl;
+			std::cout << sProduction << endl;
+			std::cout << sWorkers << endl;
+			std::cout << sArmy << endl;
+			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			cout << ">" << "RESET GAME" << endl;
-			cout << "EXIT" << endl;
-			break;
-		case 9:
-			cout << sQuests << endl;
-			cout << sTown << endl;
-			cout << sProduction << endl;
-			cout << sWorkers << endl;
-			cout << sArmy << endl;
-			cout << sWorld << endl;
-			cout << sQuestion << endl;
-			drawLine(iOptionsDashSize);
-			cout << "RESET GAME" << endl;
-			cout << ">" << "EXIT" << endl;
+			std::cout << "RESET GAME" << endl;
+			std::cout << ">" << "EXIT" << endl;
 			break;
 		default:
 			break;
@@ -367,11 +327,6 @@ int main() {
 		case KEY_ENTER:
 			selected = selection;
 			break;
-		case KEY_PLUS:
-			iPopulation++;
-			iArmy += 2;
-			iFood += 3;
-			bHouseUnlocked++;
 		}
 		#else
 		input = getch();

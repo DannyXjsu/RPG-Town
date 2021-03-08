@@ -474,70 +474,55 @@ void cProduction() {
 void cWorkers() {
 	selection = 1;
 	while (true) {
+		UpdateWorkers();
 		Clear();
 		TownStatus();
 		drawLine(iScreenSize);
 		cout << "==========RESOURCES========" << endl;
 		drawLine(iScreenSize);
 		//this bunch of if statements just draw a list of possible buildins you can do
-		if (bFarmUnlocked == true) {
+		if (bFarmerUnlocked == true) {
 			cout << "FARMER" << endl;
-			cout << "Total: " << shFarm << endl;
-			cout << "Requirements: " << iFarmWoodRequire << " Wood" << endl;
-			cout << "You have: " << iWood << " Wood" << endl;
+			cout << "Total: " << shFarmer << "/" << shFarmerMax << endl;
 			drawLine(iOptionsDashSize);
 		}
-		if (bStoneworksUnlocked == true) {
+		if (bLoggerUnlocked == true) {
 			cout << "LOGGER" << endl;
-			cout << "Total: " << shStonework << endl;
-			cout << "Requirements: " << iStoneworksStoneRequire << " Stones" << endl;
-			cout << "You have: " << iStone << " Stones" << endl;
+			cout << "Total: " << shLogger << "/" << shLoggerMax << endl;
 			drawLine(iOptionsDashSize);
 		}
-		if (bLumbermillUnlocked == true) {
+		if (bQuarrymanUnlocked == true) {
 			cout << "QUARRYMAN" << endl;
-			cout << "Total: " << shLumbermill << endl;
-			cout << "Requirements: " << iLumbermillWoodRequire << " Wood" << endl;
-			cout << "You have: " << iWood << " Wood" << endl;
+			cout << "Total: " << shQuarryman << "/" << shQuarrymanMax << endl;
 			drawLine(iScreenSize);
 		}
-		if (bArmoryUnlocked == true) {
+		if (bAnimalHunterUnlocked == true) {
 			cout << "ANIMAL HUNTER" << endl;
-			cout << "Total: " << shArmory << endl;
-			cout << "Requirements: " << iArmoryLeatherRequire << " Leather | " << iArmoryStoneRequire << " Stones" << endl;
-			cout << "You have: " << iLeather << " Leather | " << iStone << " Stones" << endl;
+			cout << "Total: " << shAnimalHunter << "/" << shAnimalHunterMax << endl;
 			drawLine(iOptionsDashSize);
 		}
 		cout << "=========PRODUCTION========" << endl;
 		drawLine(iScreenSize);
-		if (bStoneworksUnlocked == true) {
+		if (bStonemasonUnlocked == true) {
 			cout << "STONEMASON" << endl;
-			cout << "Total: " << shStonework << endl;
-			cout << "Requirements: " << iStoneworksStoneRequire << " Stones" << endl;
-			cout << "You have: " << iStone << " Stones" << endl;
+			cout << "Total: " << shStonemason << "/" << shStonemasonMax << endl;
 			drawLine(iOptionsDashSize);
 		}
-		if (bLumbermillUnlocked == true) {
+		if (bWoodworkerUnlocked == true) {
 			cout << "WOODWORKER" << endl;
-			cout << "Total: " << shLumbermill << endl;
-			cout << "Requirements: " << iLumbermillWoodRequire << " Wood" << endl;
-			cout << "You have: " << iWood << " Wood" << endl;
+			cout << "Total: " << shWoodworker << "/" << shWoodworkerMax << endl;
 			drawLine(iScreenSize);
 		}
-		if (bArmoryUnlocked == true) {
+		if (bLeatherworkerUnlocked == true) {
 			cout << "LEATHERWORKER" << endl;
-			cout << "Total: " << shArmory << endl;
-			cout << "Requirements: " << iArmoryLeatherRequire << " Leather | " << iArmoryStoneRequire << " Stones" << endl;
-			cout << "You have: " << iLeather << " Leather | " << iStone << " Stones" << endl;
+			cout << "Total: " << shLeatherworker << "/" << shLeatherworkerMax << endl;
 			drawLine(iOptionsDashSize);
 		}
 		cout << "==========COMMONS==========" << endl;
 		drawLine(iScreenSize);
-		if (bArmoryUnlocked == true) {
+		if (bInstructorUnlocked == true) {
 			cout << "INSTRUCTOR" << endl;
-			cout << "Total: " << shArmory << endl;
-			cout << "Requirements: " << iArmoryLeatherRequire << " Leather | " << iArmoryStoneRequire << " Stones" << endl;
-			cout << "You have: " << iLeather << " Leather | " << iStone << " Stones" << endl;
+			cout << "Total: " << shInstructor << "/" << shInstructorMax << endl;
 			drawLine(iOptionsDashSize);
 		}
 		#ifdef _WIN32
@@ -545,133 +530,133 @@ void cWorkers() {
 		{
 		case 1:
 			selection_color();
-			cout << "BUILD A HOUSE";
+			cout << "HIRE A FARMER";
 			default_color();
 			cout << endl;
-			cout << "BUILD A STORAGE" << endl;
-			cout << "BUILD A MONUMENT" << endl;
-			cout << "BUILD A FARM" << endl;
-			cout << "BUILD STONEWORKS" << endl;
-			cout << "BUILD A LUMBERMILL" << endl;
-			cout << "BUILD ARMORY" << endl;
-			cout << "BUILD BARRACKS" << endl;
+			cout << "HIRE A LOGGER" << endl;
+			cout << "HIRE A QUARRYMAN" << endl;
+			cout << "HIRE A ANIMAL HUNTER" << endl;
+			cout << "HIRE A STONEMASON" << endl;
+			cout << "HIRE A WOODWORKER" << endl;
+			cout << "HIRE A LEATHERWORKER" << endl;
+			cout << "HIRE A INSTRUCTOR" << endl;
 			drawLine(iOptionsDashSize);
 			cout << "BACK" << endl;
 			break;
 		case 2:
-			cout << "BUILD A HOUSE" << endl;
+			cout << "HIRE A FARMER" << endl;
 			selection_color();
-			cout << "BUILD A STORAGE";
+			cout << "HIRE A LOGGER";
 			default_color();
 			cout << endl;
-			cout << "BUILD A MONUMENT" << endl;
-			cout << "BUILD A FARM" << endl;
-			cout << "BUILD STONEWORKS" << endl;
-			cout << "BUILD A LUMBERMILL" << endl;
-			cout << "BUILD ARMORY" << endl;
-			cout << "BUILD BARRACKS" << endl;
+			cout << "HIRE A QUARRYMAN" << endl;
+			cout << "HIRE A ANIMAL HUNTER" << endl;
+			cout << "HIRE A STONEMASON" << endl;
+			cout << "HIRE A WOODWORKER" << endl;
+			cout << "HIRE A LEATHERWORKER" << endl;
+			cout << "HIRE A INSTRUCTOR" << endl;
 			drawLine(iOptionsDashSize);
 			cout << "BACK" << endl;
 			break;
 		case 3:
-			cout << "BUILD A HOUSE" << endl;
-			cout << "BUILD A STORAGE" << endl;
+			cout << "HIRE A FARMER" << endl;
+			cout << "HIRE A LOGGER" << endl;
 			selection_color();
-			cout << "BUILD A MONUMENT";
+			cout << "HIRE A QUARRYMAN";
 			default_color();
 			cout << endl;
-			cout << "BUILD A FARM" << endl;
-			cout << "BUILD STONEWORKS" << endl;
-			cout << "BUILD A LUMBERMILL" << endl;
-			cout << "BUILD ARMORY" << endl;
-			cout << "BUILD BARRACKS" << endl;
+			cout << "HIRE A ANIMAL HUNTER" << endl;
+			cout << "HIRE A STONEMASON" << endl;
+			cout << "HIRE A WOODWORKER" << endl;
+			cout << "HIRE A LEATHERWORKER" << endl;
+			cout << "HIRE A INSTRUCTOR" << endl;
 			drawLine(iOptionsDashSize);
 			cout << "BACK" << endl;
 			break;
 		case 4:
-			cout << "BUILD A HOUSE" << endl;
-			cout << "BUILD A STORAGE" << endl;
-			cout << "BUILD A MONUMENT" << endl;
+			cout << "HIRE A FARMER" << endl;
+			cout << "HIRE A LOGGER" << endl;
+			cout << "HIRE A QUARRYMAN" << endl;
 			selection_color();
-			cout << "BUILD A FARM";
+			cout << "HIRE A ANIMAL HUNTER";
 			default_color();
 			cout << endl;
-			cout << "BUILD STONEWORKS" << endl;
-			cout << "BUILD A LUMBERMILL" << endl;
-			cout << "BUILD ARMORY" << endl;
-			cout << "BUILD BARRACKS" << endl;
+			cout << "HIRE A STONEMASON" << endl;
+			cout << "HIRE A WOODWORKER" << endl;
+			cout << "HIRE A LEATHERWORKER" << endl;
+			cout << "HIRE A INSTRUCTOR" << endl;
 			drawLine(iOptionsDashSize);
 			cout << "BACK" << endl;
 			break;
 		case 5:
-			cout << "BUILD A HOUSE" << endl;
-			cout << "BUILD A STORAGE" << endl;
-			cout << "BUILD A MONUMENT" << endl;
-			cout << "BUILD A FARM" << endl;
+			cout << "HIRE A FARMER" << endl;
+			cout << "HIRE A LOGGER" << endl;
+			cout << "HIRE A QUARRYMAN" << endl;
+			cout << "HIRE A ANIMAL HUNTER" << endl;
 			selection_color();
-			cout << "BUILD STONEWORKS";
+			cout << "HIRE A STONEMASON";
 			default_color();
 			cout << endl;
-			cout << "BUILD A LUMBERMILL" << endl;
-			cout << "BUILD ARMORY" << endl;
-			cout << "BUILD BARRACKS" << endl;
+			cout << "HIRE A WOODWORKER" << endl;
+			cout << "HIRE A LEATHERWORKER" << endl;
+			cout << "HIRE A INSTRUCTOR" << endl;
 			drawLine(iOptionsDashSize);
 			cout << "BACK" << endl;
 			break;
 		case 6:
-			cout << "BUILD A HOUSE" << endl;
-			cout << "BUILD A STORAGE" << endl;
-			cout << "BUILD A MONUMENT" << endl;
-			cout << "BUILD A FARM" << endl;
-			cout << "BUILD STONEWORKS" << endl;
+			cout << "HIRE A FARMER" << endl;
+			cout << "HIRE A LOGGER" << endl;
+			cout << "HIRE A QUARRYMAN" << endl;
+			cout << "HIRE A ANIMAL HUNTER" << endl;
+			cout << "HIRE A STONEMASON" << endl;
 			selection_color();
-			cout << "BUILD A LUMBERMILL";
+			cout << "HIRE A WOODWORKER";
 			default_color();
 			cout << endl;
-			cout << "BUILD ARMORY" << endl;
-			cout << "BUILD BARRACKS" << endl;
+			cout << "HIRE A LEATHERWORKER" << endl;
+			cout << "HIRE A INSTRUCTOR" << endl;
 			drawLine(iOptionsDashSize);
 			cout << "BACK" << endl;
 			break;
 		case 7:
-			cout << "BUILD A HOUSE" << endl;
-			cout << "BUILD A STORAGE" << endl;
-			cout << "BUILD A MONUMENT" << endl;
-			cout << "BUILD A FARM" << endl;
-			cout << "BUILD STONEWORKS" << endl;
-			cout << "BUILD A LUMBERMILL" << endl;
+			cout << "HIRE A FARMER" << endl;
+			cout << "HIRE A LOGGER" << endl;
+			cout << "HIRE A QUARRYMAN" << endl;
+			cout << "HIRE A ANIMAL HUNTER" << endl;
+			cout << "HIRE A STONEMASON" << endl;
+			cout << "HIRE A WOODWORKER" << endl;
 			selection_color();
-			cout << "BUILD ARMORY";
+			cout << "HIRE A LEATHERWORKER";
 			default_color();
 			cout << endl;
-			cout << "BUILD BARRACKS" << endl;
+			cout << "HIRE A INSTRUCTOR" << endl;
 			drawLine(iOptionsDashSize);
 			cout << "BACK" << endl;
 			break;
 		case 8:
-			cout << "BUILD A HOUSE" << endl;
-			cout << "BUILD A STORAGE" << endl;
-			cout << "BUILD A MONUMENT" << endl;
-			cout << "BUILD A FARM" << endl;
-			cout << "BUILD STONEWORKS" << endl;
-			cout << "BUILD A LUMBERMILL" << endl;
-			cout << "BUILD ARMORY" << endl;
+			cout << "HIRE A FARMER" << endl;
+			cout << "HIRE A LOGGER" << endl;
+			cout << "HIRE A QUARRYMAN" << endl;
+			cout << "HIRE A ANIMAL HUNTER" << endl;
+			cout << "HIRE A STONEMASON" << endl;
+			cout << "HIRE A WOODWORKER" << endl;
+			cout << "HIRE A LEATHERWORKER" << endl;
 			selection_color();
-			cout << "BUILD BARRACKS";
+			cout << "HIRE A INSTRUCTOR";
 			default_color();
 			cout << endl;
 			drawLine(iOptionsDashSize);
 			cout << "BACK" << endl;
 			break;
 		case 9:
-			cout << "BUILD A HOUSE" << endl;
-			cout << "BUILD A STORAGE" << endl;
-			cout << "BUILD A MONUMENT" << endl;
-			cout << "BUILD A FARM" << endl;
-			cout << "BUILD STONEWORKS" << endl;
-			cout << "BUILD A LUMBERMILL" << endl;
-			cout << "BUILD ARMORY" << endl;
-			cout << "BUILD BARRACKS" << endl;
+			cout << "HIRE A FARMER" << endl;
+			cout << "HIRE A LOGGER" << endl;
+			cout << "HIRE A QUARRYMAN" << endl;
+			cout << "HIRE A ANIMAL HUNTER" << endl;
+			cout << "HIRE A STONEMASON" << endl;
+			cout << "HIRE A WOODWORKER" << endl;
+			cout << "HIRE A LEATHERWORKER" << endl;
+			cout << "HIRE A INSTRUCTOR" << endl;
 			drawLine(iOptionsDashSize);
 			selection_color();
 			cout << "BACK";
@@ -694,17 +679,16 @@ void cWorkers() {
 			switch (selection)
 			{
 			case 1:
-				if (iWood >= iHouseWoodRequire && iStone >= iHouseStoneRequire) {
-					iWood -= iHouseWoodRequire;
-					iStone -= iHouseStoneRequire;
-					shHouse++;
+				if (iFreeWorkers > 0) {
+					iFreeWorkers--;
+					iWorkers++;
+					shFarmer++;
 					UpdatePopulation();
-					iHouseWoodRequire *= iMulti;
-
+					UpdateWorkers();
 				}
 				else {
 					Clear();
-					cout << "NOT ENOUGH MATERIALS" << endl;
+					cout << "NOT ENOUGH WORKERS" << endl;
 					Sleep(1000);
 					Clear();
 				}
@@ -725,6 +709,7 @@ void cWorkers() {
 				break;
 			case 9:
 				return;
+				break;
 			default:
 				break;
 			}
@@ -922,8 +907,4 @@ void cArmy() {
 
 void cWorld() {
 	cout << "this is world\n";
-}
-
-void c() {
-
 }

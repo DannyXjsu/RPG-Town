@@ -47,14 +47,23 @@ int iArmy = 0; //Amount of army
 int iWorkers;
 int iFreeWorkers;
 
-short iFarmer = 0;
-short iLogger = 0;
-short Quarryman = 0;
-short iAnimalHunter = 0;
-short iStonemason = 0;
-short iWoodworker = 0;
-short iLeatherworker = 0;
-short iInstructor = 0;
+short shFarmer = 0;
+short shLogger = 0;
+short shQuarryman = 0;
+short shAnimalHunter = 0;
+short shStonemason = 0;
+short shWoodworker = 0;
+short shLeatherworker = 0;
+short shInstructor = 0;
+
+short shFarmerMax;
+short shLoggerMax;
+short shQuarrymanMax;
+short shAnimalHunterMax;
+short shStonemasonMax;
+short shWoodworkerMax;
+short shLeatherworkerMax;
+short shInstructorMax;
 
 int iWood = 0; //Amount of Wood
 int iStone = 0; //Amount of Stone
@@ -72,5 +81,14 @@ bool bLumbermillUnlocked = false;
 bool bArmoryUnlocked = false;
 bool bBarracksUnlocked = false;
 
+bool bFarmerUnlocked = true;
+bool bLoggerUnlocked = true;
+bool bQuarrymanUnlocked = true;
+bool bAnimalHunterUnlocked;
+bool bStonemasonUnlocked;
+bool bWoodworkerUnlocked;
+bool bLeatherworkerUnlocked;
+bool bInstructorUnlocked;
+
 //just options size
-const int OptionsSize = 9;
+const int OptionsSize = 8;
