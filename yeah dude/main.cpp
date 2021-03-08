@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "color-console/color.hpp"
+
 #ifdef _WIN32 //checks if windows is running
 #include <conio.h>
 #else
@@ -112,9 +114,7 @@ start: //used for goto
 		switch (selection)
 		{
 		case 1:
-			selection_color();
-			std::cout << sQuests << endl;
-			default_color();
+			std::cout << dye::on_white(sQuests) << endl;
 			std::cout << sTown << endl;
 			std::cout << sProduction << endl;
 			std::cout << sWorkers << endl;
@@ -126,9 +126,7 @@ start: //used for goto
 			break;
 		case 2:
 			std::cout << sQuests << endl;
-			selection_color();
-			std::cout << sTown << endl;
-			default_color();
+			std::cout << dye::on_white(sTown) << endl;
 			std::cout << sProduction << endl;
 			std::cout << sWorkers << endl;
 			std::cout << sArmy << endl;
@@ -140,9 +138,7 @@ start: //used for goto
 		case 3:
 			std::cout << sQuests << endl;
 			std::cout << sTown << endl;
-			selection_color();
-			std::cout << sProduction << endl;
-			default_color();
+			std::cout << dye::on_white(sProduction) << endl;
 			std::cout << sWorkers << endl;
 			std::cout << sArmy << endl;
 			std::cout << sWorld << endl;
@@ -154,9 +150,7 @@ start: //used for goto
 			std::cout << sQuests << endl;
 			std::cout << sTown << endl;
 			std::cout << sProduction << endl;
-			selection_color();
-			std::cout << sWorkers << endl;
-			default_color();
+			std::cout << dye::on_white(sWorkers) << endl;
 			std::cout << sArmy << endl;
 			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
@@ -168,9 +162,7 @@ start: //used for goto
 			std::cout << sTown << endl;
 			std::cout << sProduction << endl;
 			std::cout << sWorkers << endl;
-			selection_color();
-			std::cout << sArmy << endl;
-			default_color();
+			std::cout << dye::on_white(sArmy) << endl;
 			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
 			std::cout << "RESET GAME" << endl;
@@ -182,9 +174,7 @@ start: //used for goto
 			std::cout << sProduction << endl;
 			std::cout << sWorkers << endl;
 			std::cout << sArmy << endl;
-			selection_color();
-			std::cout << sWorld << endl;
-			default_color();
+			std::cout << dye::on_white(sWorld) << endl;
 			drawLine(iOptionsDashSize);
 			std::cout << "RESET GAME" << endl;
 			std::cout << "EXIT" << endl;
@@ -197,9 +187,7 @@ start: //used for goto
 			std::cout << sArmy << endl;
 			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
-			selection_color();
-			std::cout << "RESET GAME" << endl;
-			default_color();
+			std::cout << dye::on_white("RESET GAME") << endl;
 			std::cout << "EXIT" << endl;
 			break;
 		case 8:
@@ -211,9 +199,7 @@ start: //used for goto
 			std::cout << sWorld << endl;
 			drawLine(iOptionsDashSize);
 			std::cout << "RESET GAME" << endl;
-			selection_color();
-			std::cout << "EXIT" << endl;
-			default_color();
+			std::cout << dye::on_white("EXIT") << endl;
 			break;
 		default:
 			break;

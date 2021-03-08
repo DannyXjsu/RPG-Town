@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "color-console/color.hpp"
 
 #ifdef _WIN32
 #include <conio.h>
@@ -96,10 +97,7 @@ void cTown() {
 		switch (selection)
 		{
 		case 1:
-			selection_color();
-			cout << "BUILD A HOUSE";
-			default_color();
-			cout << endl;
+			cout << dye::on_white("BUILD A HOUSE") << endl;
 			cout << "BUILD A STORAGE" << endl;
 			cout << "BUILD A MONUMENT" << endl;
 			cout << "BUILD A FARM" << endl;
@@ -112,10 +110,7 @@ void cTown() {
 			break;
 		case 2:
 			cout << "BUILD A HOUSE" << endl;
-			selection_color();
-			cout << "BUILD A STORAGE";
-			default_color();
-			cout << endl;
+			cout << dye::on_white("BUILD A STORAGE") << endl;
 			cout << "BUILD A MONUMENT" << endl;
 			cout << "BUILD A FARM" << endl;
 			cout << "BUILD STONEWORKS" << endl;
@@ -128,10 +123,7 @@ void cTown() {
 		case 3:
 			cout << "BUILD A HOUSE" << endl;
 			cout << "BUILD A STORAGE" << endl;
-			selection_color();
-			cout << "BUILD A MONUMENT";
-			default_color();
-			cout << endl;
+			cout << dye::on_white("BUILD A MONUMENT") << endl;
 			cout << "BUILD A FARM" << endl;
 			cout << "BUILD STONEWORKS" << endl;
 			cout << "BUILD A LUMBERMILL" << endl;
@@ -144,10 +136,7 @@ void cTown() {
 			cout << "BUILD A HOUSE" << endl;
 			cout << "BUILD A STORAGE" << endl;
 			cout << "BUILD A MONUMENT" << endl;
-			selection_color();
-			cout << "BUILD A FARM";
-			default_color();
-			cout << endl;
+			cout << dye::on_white("BUILD A FARM") << endl;
 			cout << "BUILD STONEWORKS" << endl;
 			cout << "BUILD A LUMBERMILL" << endl;
 			cout << "BUILD ARMORY" << endl;
@@ -160,10 +149,7 @@ void cTown() {
 			cout << "BUILD A STORAGE" << endl;
 			cout << "BUILD A MONUMENT" << endl;
 			cout << "BUILD A FARM" << endl;
-			selection_color();
-			cout << "BUILD STONEWORKS";
-			default_color();
-			cout << endl;
+			cout << dye::on_white("BUILD STONEWORKS") << endl;
 			cout << "BUILD A LUMBERMILL" << endl;
 			cout << "BUILD ARMORY" << endl;
 			cout << "BUILD BARRACKS" << endl;
@@ -176,10 +162,7 @@ void cTown() {
 			cout << "BUILD A MONUMENT" << endl;
 			cout << "BUILD A FARM" << endl;
 			cout << "BUILD STONEWORKS" << endl;
-			selection_color();
-			cout << "BUILD A LUMBERMILL";
-			default_color();
-			cout << endl;
+			cout << dye::on_white("BUILD A LUMBERMILL") << endl;
 			cout << "BUILD ARMORY" << endl;
 			cout << "BUILD BARRACKS" << endl;
 			drawLine(iOptionsDashSize);
@@ -192,10 +175,7 @@ void cTown() {
 			cout << "BUILD A FARM" << endl;
 			cout << "BUILD STONEWORKS" << endl;
 			cout << "BUILD A LUMBERMILL" << endl;
-			selection_color();
-			cout << "BUILD ARMORY";
-			default_color();
-			cout << endl;
+			cout << dye::on_white("BUILD ARMORY") << endl;
 			cout << "BUILD BARRACKS" << endl;
 			drawLine(iOptionsDashSize);
 			cout << "BACK" << endl;
@@ -208,10 +188,7 @@ void cTown() {
 			cout << "BUILD STONEWORKS" << endl;
 			cout << "BUILD A LUMBERMILL" << endl;
 			cout << "BUILD ARMORY" << endl;
-			selection_color();
-			cout << "BUILD BARRACKS";
-			default_color();
-			cout << endl;
+			cout << dye::on_white("BUILD BARRACKS") << endl;
 			drawLine(iOptionsDashSize);
 			cout << "BACK" << endl;
 			break;
@@ -225,10 +202,8 @@ void cTown() {
 			cout << "BUILD ARMORY" << endl;
 			cout << "BUILD BARRACKS" << endl;
 			drawLine(iOptionsDashSize);
-			selection_color();
-			cout << "BACK";
-			default_color();
-			cout << endl;
+			cout << dye::on_white("BACK") << endl;
+			break;
 		default:
 			break;
 	}

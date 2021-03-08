@@ -205,6 +205,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="color-console\color.hpp" />
     <ClInclude Include="function_line.h" />
     <ClInclude Include="game_functions.h" />
     <ClInclude Include="game_save_load.h" />

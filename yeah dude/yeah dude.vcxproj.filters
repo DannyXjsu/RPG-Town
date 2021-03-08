@@ -16,6 +16,18 @@
     <Filter Include="timercpp">
       <UniqueIdentifier>{1f89e353-3279-4ca9-9f2d-7e1e6e7e5802}</UniqueIdentifier>
     </Filter>
+    <Filter Include="color-console">
+      <UniqueIdentifier>{c90e527c-5f2f-47fc-b604-415077ab55e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\game">
+      <UniqueIdentifier>{cbeeb46e-4b85-4329-a1b2-289ad90512d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\function">
+      <UniqueIdentifier>{16271c39-d02c-4ff6-b23b-97d18a657782}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\system">
+      <UniqueIdentifier>{63d4e533-0d82-48f0-97d2-92d545cfe381}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -23,29 +35,32 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="system_console.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="system_color.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game_tabs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="function_line.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game_variables.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game_functions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game_save_load.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="timercpp\timercpp.h">
       <Filter>timercpp</Filter>
+    </ClInclude>
+    <ClInclude Include="color-console\color.hpp">
+      <Filter>color-console</Filter>
+    </ClInclude>
+    <ClInclude Include="game_functions.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_save_load.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_tabs.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="function_line.h">
+      <Filter>Header Files\function</Filter>
+    </ClInclude>
+    <ClInclude Include="game_variables.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="system_color.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="system_console.h">
+      <Filter>Header Files\system</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
